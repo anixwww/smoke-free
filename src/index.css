@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+/* Hide native scrollbars utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px rgba(30, 138, 105, 0.4));
+  }
+  50% {
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 8px rgba(76, 201, 160, 0.6));
+  }
+}
+
+.animate-breathing {
+  animation: breathing 4s ease-in-out infinite;
+}
+
+@keyframes pineCrownSway {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2.5deg);
+  }
+  75% {
+    transform: rotate(-2.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pineMidSway {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(1.2deg);
+  }
+  70% {
+    transform: rotate(-1.2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes breezeDrift {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+}
+
+.animate-pine-crown {
+  transform-origin: 60px 100px;
+  animation: pineCrownSway 4s ease-in-out infinite;
+}
+
+.animate-pine-mid {
+  transform-origin: 60px 100px;
+  animation: pineMidSway 5.5s ease-in-out infinite;
+}
+
+.animate-breeze {
+  animation: breezeDrift 3.5s ease-in-out infinite;
+}
+
+@keyframes wingFlapLeft {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg) scaleY(0.92);
+  }
+}
+
+@keyframes wingFlapRight {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg) scaleY(0.92);
+  }
+}
+
+@keyframes dragonFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0.8deg);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.animate-dragon-float {
+  animation: dragonFloat 4s ease-in-out infinite;
+}
+
+.animate-wing-left {
+  transform-origin: 50px 70px;
+  animation: wingFlapLeft 3.2s ease-in-out infinite;
+}
+
+.animate-wing-right {
+  transform-origin: 70px 70px;
+  animation: wingFlapRight 3.2s ease-in-out infinite;
+}
+
+.animate-star-twinkle {
+  animation: starTwinkle 2.5s ease-in-out infinite;
+}
+
+@keyframes tremorPulse {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.3));
+  }
+  50% {
+    transform: scale(1.025) translateY(-1px);
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.65));
+  }
+}
+
+@keyframes bellGentleSwing {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(7deg);
+  }
+  45% {
+    transform: rotate(-5deg);
+  }
+  70% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes zenStoneBreathe {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.25));
+  }
+  50% {
+    transform: scale(1.02);
+    filter: drop-shadow(0 12px 24px rgba(16, 185, 129, 0.25));
+  }
+}
+
+@keyframes zenWaterRippleSlow {
+  0% {
+    r: 25px;
+    opacity: 0.6;
+    stroke-width: 1.5;
+  }
+  100% {
+    r: 120px;
+    opacity: 0;
+    stroke-width: 0.5;
+  }
+}
+
+@keyframes zenGlowWarm {
+  0%, 100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.animate-zen-stone {
+  transform-box: fill-box;
+  transform-origin: 50% 90%;
+  animation: zenStoneBreathe 6s ease-in-out infinite;
+}
+
+.animate-zen-ripple-1 {
+  animation: zenWaterRippleSlow 4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
+
+.animate-zen-ripple-2 {
+  animation: zenWaterRippleSlow 4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+  animation-delay: 2s;
+}
+
+.animate-zen-glow {
+  animation: zenGlowWarm 3.5s ease-in-out infinite;
+}
+
+/* Shimmer Progress Filling Animation */
+@keyframes shimmerProgress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-shimmer-progress {
+  animation: shimmerProgress 2.2s linear infinite;
+}
+
+/* ========================================================================== */
+/* DYNAMIC DARK MODE GRADIENT BACKGROUNDS (ADAPTS TO SELECTED ACCENT)         */
+/* ========================================================================== */
+html.dark, html[data-theme="dark"] {
+  background: linear-gradient(135deg, #18181b 0%, #27272a 50%, #09090b 100%);
+  color-scheme: dark;
+}
+
+html.dark[data-accent="gray"], html[data-theme="dark"][data-accent="gray"] {
+  background: linear-gradient(135deg, #18181b 0%, #27272a 50%, #09090b 100%);
+}
+
+html.dark[data-accent="charcoal"], html[data-theme="dark"][data-accent="charcoal"] {
+  background: linear-gradient(135deg, #121215 0%, #1c1c21 50%, #09090c 100%);
+}
+
+html.dark[data-accent="sage"], html[data-theme="dark"][data-accent="sage"] {
+  background: linear-gradient(135deg, #131a17 0%, #1f2723 50%, #0c120f 100%);
+}
+
+html.dark[data-accent="taupe"], html[data-theme="dark"][data-accent="taupe"] {
+  background: linear-gradient(135deg, #1a1715 0%, #27221e 50%, #0f0d0c 100%);
+}
+
+html.dark[data-accent="slate-blue"], html[data-theme="dark"][data-accent="slate-blue"] {
+  background: linear-gradient(135deg, #141821 0%, #1e2430 50%, #0b0d14 100%);
+}
+
+html.dark[data-accent="ash-olive"], html[data-theme="dark"][data-accent="ash-olive"] {
+  background: linear-gradient(135deg, #151813 0%, #21251e 50%, #0c0e0b 100%);
+}
+
+body {
+  background-color: transparent;
+}
+
